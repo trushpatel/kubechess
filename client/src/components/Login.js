@@ -32,7 +32,8 @@ export const Login = ({setAuth}) => {
 
     return (
         <Fragment>
-            <h1 className="text-center my-5">Login</h1>
+            <h1 className="text-center my-5">Welcome to KubeChess!</h1>
+            <h2 className="text-center my-5">Login</h2>
             <form onSubmit={onSubmitForm}>
                 <input className="form-control my-3" type="email" name="email" placeholder="email" value={email} onChange={e => onChange(e)} />
                 <input className="form-control my-3" type="password" name="password" placeholder="password" value={password} onChange={e => onChange(e)} />
