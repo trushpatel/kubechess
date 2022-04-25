@@ -56,8 +56,8 @@ function App() {
             <Route exact path="/login" element={!isAuthenticated ? <Login setAuth={setAuth} /> : <Navigate to ="/dashboard" />} />
             <Route exact path="/register"  element={!isAuthenticated ? <Register setAuth={setAuth} /> : <Navigate to ="/login" />} />
             <Route exact path="/dashboard"  element={isAuthenticated ? <Dashboard setAuth={setAuth} /> : <Navigate to ="/login" />} />
-            <Route exact path="/dashboard"  element={!isInMatch ? <Dashboard setAuth={setAuth} setInMatch={setInMatch} /> : <Navigate to ="/gameSession" />} />
-            <Route exact path="/gameSession"  element={<GameSession />}/>
+            <Route exact path="/dashboard"  element={!isInMatch ? <Dashboard setAuth={setAuth} /> : <Navigate to ="/gameSession" />} />
+            <Route exact path="/gameSession"  element={isAuthenticated ? <GameSession setAuth={setAuth} /> : <Navigate to ="/login"/>}/>
           </Routes>
         </div>
       </Router>

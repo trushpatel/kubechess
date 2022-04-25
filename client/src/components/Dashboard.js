@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export const Dashboard = ({ setAuth }, { setInMatch }) => {
+export const Dashboard = ({ setAuth }) => {
     const [name, setName] = useState("");
     
     async function getName() {
@@ -27,15 +27,12 @@ export const Dashboard = ({ setAuth }, { setInMatch }) => {
         setAuth(false);
     }
 
-    const enterGame = (e) => {
-        e.preventDefault();
-        setInMatch(true);
-    }
-
     return (
         <Fragment>
             <button className="btn btn-primary my-5" onClick={e => logout(e)}>Logout</button>
-            <button className="btn btn-primary my-5" onClick={e => enterGame(e)}>Play Now</button>
+            <div>
+                <Link to="/gameSession" ><button className="btn btn-primary my-5">Play Now</button></Link>
+            </div>
             <h1 className="text-center mt-5">{name}</h1>
             <h2 className="text-center mt-5 my-5">Dashboard</h2>
             <table class="table">
